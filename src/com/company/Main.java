@@ -49,8 +49,7 @@ class Canvas extends JPanel{
         g.drawImage(HeadSneake.image, HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
 
         for(BodySneake body:Window.bodySneakeArrayList){
-            g.drawImage(BodySneake.image, BodySneake.x, BodySneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
-            g.drawImage(BodySneake.image, BodySneake.x, BodySneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
+            g.drawImage(body.image, body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
         }
 
         /*
