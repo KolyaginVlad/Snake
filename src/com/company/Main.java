@@ -67,6 +67,8 @@ class Canvas extends JPanel {
         g.setColor(Color.orange);
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
+        Hay.eatHay();
+
 
         /*
         Рисуем изображение головы
