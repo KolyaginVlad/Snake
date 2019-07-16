@@ -16,6 +16,18 @@ public class Hay {
     public static void eatHay(){
         int newX = (int)(Math.random()*Window.WIDTH);
         int newY =(int)(Math.random()*Window.HEIGHT);
-        if (newX)
+        boolean flag = true;
+        for (BodySneake body:Window.bodySneakeArrayList
+             ) {
+            if (Math.abs(newX-body.x)<HeadSneake.WIDTH&&Math.abs(newY-body.y)<HeadSneake.HEIGHT){
+                flag = false;
+                break;
+            }
+        }
+        if (flag){
+            x = newX;
+            y = newY;
+        }
+        else eatHay();
     }
 }
