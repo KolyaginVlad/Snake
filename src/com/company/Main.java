@@ -3,6 +3,8 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class Main {
@@ -43,10 +45,15 @@ class Window extends JFrame {
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
         canvas.setFocusable(true);
-        canvas.addKeyListener(new Move());
+        //canvas.addKeyListener(new Move());
         new DrawThread().start();
+        canvas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Window.game=true;
+            }
+        });
 
-        
     }
 }
 
