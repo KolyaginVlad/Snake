@@ -25,7 +25,7 @@ public  class HeadSneake {
        this.direction = direction;
 
        try {
-           image = ImageIO.read(new File("src/bull.jpg"));
+           image = ImageIO.read(new File("bull.jpg"));
        } catch (IOException e) {
            e.printStackTrace();
        }

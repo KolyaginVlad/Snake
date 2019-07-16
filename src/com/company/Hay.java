@@ -16,7 +16,7 @@ public class Hay {
         this.x=x;
         this.y=y;
         try {
-            image = ImageIO.read(new File("src/Hay.jpg"));
+            image = ImageIO.read(new File("Hay.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
