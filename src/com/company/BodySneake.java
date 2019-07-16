@@ -9,7 +9,7 @@ public class BodySneake {
     //Тел будет много, поэтому не статик
     //Все файлы java  в одном пакете поэтому модификатор доступа не нужен
 
-     Image image;
+     static Image image;
      int x;
      int y;
 
@@ -17,7 +17,7 @@ public class BodySneake {
         this.x = x;
         this.y = y;
         try {
-            image = ImageIO.read(new File("Body.jpg"));
+            image = ImageIO.read(new File("src/Body.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
