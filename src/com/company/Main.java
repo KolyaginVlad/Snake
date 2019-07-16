@@ -31,7 +31,7 @@ class Window extends JFrame{
 class Canvas extends JPanel{
     @Override
     public void paintComponent(Graphics g){
-        g.setColor(Color.black);
+        g.setColor(Color.green.darker().darker());
         g.fillRect(0,0,Window.WIDTH,Window.HEIGHT);
         /*
         Рисуем изображение головы
