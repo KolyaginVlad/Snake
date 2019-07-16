@@ -36,8 +36,9 @@ class Window extends JFrame{
     HeadSneake.y = 0;
    HeadSneake.direction = HeadSneake.RRIGHT;
     game = true;
-    new DrawThread().start();
         canvas = new Canvas();
+    new DrawThread().start();
+
         add(canvas);
         canvas.setBounds(0,0,WIDTH,HEIGHT);
     }
@@ -71,7 +72,6 @@ class DrawThread extends Thread{
     public void run() {
         while (Window.game){
             Window.canvas.repaint();
-            System.out.println(1);
             try {
                 sleep(500);
             } catch (InterruptedException e) {
