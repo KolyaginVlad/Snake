@@ -5,7 +5,7 @@ package com.company;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Move extends KeyAdapter {
+public class Move extends KeyAdapter{
     static int step = 10;
 
 public void keyPressed(KeyEvent event){
@@ -23,5 +23,7 @@ if(event.getKeyCode()==KeyEvent.VK_RIGHT&&HeadSneake.direction!=HeadSneake.LEFT)
 HeadSneake.direction = HeadSneake.RRIGHT;
 }
 }
+
+
     }
 

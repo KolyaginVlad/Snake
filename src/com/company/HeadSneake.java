@@ -1,10 +1,13 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public  class HeadSneake {
-   static ImageIcon image;
+   static Image image;
    static int direction;
    static final int UP =1;
     static final int DOWN =2;
@@ -21,7 +24,11 @@ public  class HeadSneake {
        this.y = y;
        this.direction = direction;
 
-       image = new ImageIcon("bull.jpg");
+       try {
+           image = ImageIO.read(new File("bull.jpg"));
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
 
        //Присваиваем изображению файл с изображением
    }
