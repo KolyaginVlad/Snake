@@ -24,9 +24,13 @@ public class Hay {
                 break;
             }
         }
+
         if (flag){
-            x = newX;
-            y = newY;
+            if (!(Math.abs(newX-HeadSneake.x)<HeadSneake.WIDTH)&&!(Math.abs(newY-HeadSneake.y)<HeadSneake.HEIGHT)) {
+                x = newX;
+                y = newY;
+            }
+            else eatHay();
         }
         else eatHay();
     }
