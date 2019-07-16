@@ -30,6 +30,7 @@ class Window extends JFrame{
     canvas = new Canvas();
     add(canvas);
     canvas.setBounds(0,0,WIDTH,HEIGHT);
+    bodySneakeArrayList = new ArrayList<>();
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-HeadSneake.WIDTH,HeadSneake.y));
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-2*HeadSneake.WIDTH,HeadSneake.y));
     HeadSneake.x = 100;
