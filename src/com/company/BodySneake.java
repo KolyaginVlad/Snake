@@ -16,7 +16,7 @@ public class BodySneake {
         this.x = x;
         this.y = y;
         try {
-            image = ImageIO.read(new File("Body.jpg"));
+            image = ImageIO.read(new File("src/Body.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
