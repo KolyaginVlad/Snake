@@ -43,6 +43,7 @@ class Window extends JFrame{
     }
 }
 
+
 class Canvas extends JPanel{
     @Override
     public void paintComponent(Graphics g){
