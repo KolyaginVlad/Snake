@@ -6,7 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Move extends KeyAdapter{
-    static int step = 10;
+    static int step = 30;
 
 public void keyPressed(KeyEvent event){
 if(event.getKeyCode()==KeyEvent.VK_DOWN&&HeadSneake.direction!=HeadSneake.UP){
@@ -27,7 +27,7 @@ HeadSneake.direction = HeadSneake.RRIGHT;
     HeadSneake.x+=step;
 }
 if(event.getKeyCode()==KeyEvent.VK_SPACE){
-    
+
 }
 }
 
