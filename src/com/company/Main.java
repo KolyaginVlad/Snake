@@ -32,6 +32,9 @@ class Window extends JFrame{
     canvas.setBounds(0,0,WIDTH,HEIGHT);
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-HeadSneake.WIDTH,HeadSneake.y));
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-2*HeadSneake.WIDTH,HeadSneake.y));
+    HeadSneake.x = 100;
+    HeadSneake.y = 0;
+   HeadSneake.direction = HeadSneake.RRIGHT;
     game = false;
     new DrawThread().start();
     }
@@ -43,7 +46,9 @@ class Canvas extends JPanel{
         g.setColor(Color.green.darker().darker());
         g.fillRect(0,0,Window.WIDTH,Window.HEIGHT);
 
-        g.drawImage(HeadSneake.image,)
+        g.drawImage(HeadSneake.image, HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
+        
+
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
