@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         new HeadSneake(100,0,4);
-        new BodySneake(0,0);
+        new BodySneake(50,0);
         new Window();
     }
 
@@ -29,17 +29,17 @@ class Window extends JFrame{
     setResizable(false);
     setLayout(null);
     setVisible(true);
-    canvas = new Canvas();
-    add(canvas);
-    canvas.setBounds(0,0,WIDTH,HEIGHT);
     bodySneakeArrayList = new ArrayList<>();
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-HeadSneake.WIDTH,HeadSneake.y));
-    bodySneakeArrayList.add(new BodySneake(HeadSneake.x-2*HeadSneake.WIDTH,HeadSneake.y));
+    bodySneakeArrayList.add(new BodySneake(HeadSneake.x-(2*HeadSneake.HEIGHT),HeadSneake.y));
     HeadSneake.x = 100;
     HeadSneake.y = 0;
    HeadSneake.direction = HeadSneake.RRIGHT;
-    game = false;
+    game = true;
     new DrawThread().start();
+        canvas = new Canvas();
+        add(canvas);
+        canvas.setBounds(0,0,WIDTH,HEIGHT);
     }
 }
 
@@ -71,11 +71,13 @@ class DrawThread extends Thread{
     public void run() {
         while (Window.game){
             Window.canvas.repaint();
+            System.out.println(1);
             try {
                 sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
     }
 }
