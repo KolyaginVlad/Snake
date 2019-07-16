@@ -13,14 +13,14 @@ if(event.getKeyCode()==KeyEvent.VK_DOWN&&HeadSneake.direction!=HeadSneake.UP){
 HeadSneake.direction=HeadSneake.DOWN;
 }
 if(event.getKeyCode()==KeyEvent.VK_UP&&HeadSneake.direction!=HeadSneake.DOWN){
-
+HeadSneake.direction = HeadSneake.UP;
 }
 
-if(event.getKeyCode()==KeyEvent.VK_LEFT){
-
+if(event.getKeyCode()==KeyEvent.VK_LEFT&&HeadSneake.direction!=HeadSneake.RRIGHT){
+HeadSneake.direction = HeadSneake.LEFT;
 }
-if(event.getKeyCode()==KeyEvent.VK_RIGHT){
-
+if(event.getKeyCode()==KeyEvent.VK_RIGHT&&HeadSneake.direction!=HeadSneake.LEFT){
+HeadSneake.direction = HeadSneake.RRIGHT;
 }
 }
     }
