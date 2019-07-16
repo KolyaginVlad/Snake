@@ -1,6 +1,6 @@
 package com.company;
 
-import com.sun.xml.internal.ws.wsdl.writer.document.soap.Body;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        new HeadSneake(100,0,4);
+        new BodySneake(0,0);
         new Window();
     }
 
