@@ -2,6 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -15,6 +16,7 @@ public class Main {
 class Window extends JFrame{
     public static final int WIDTH = 600;
     public static final int HEIGHT = 600;
+    public static ArrayList<BodySneake> bodySneakeArrayList;
     Canvas canvas;
     public Window(){
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
