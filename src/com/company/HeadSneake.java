@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 
 public  class HeadSneake {
-   static Image image;
    static int direction;
    static final int UP =1;
     static final int DOWN =2;
@@ -24,11 +23,6 @@ public  class HeadSneake {
        this.y = y;
        this.direction = direction;
 
-       try {
-           image = ImageIO.read(new File("bull.jpg"));
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
 
        //Присваиваем изображению файл с изображением
    }
