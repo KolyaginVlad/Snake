@@ -51,9 +51,14 @@ class Canvas extends JPanel{
         g.fillRect(0,0,Window.WIDTH,Window.HEIGHT);
         g.setColor(Color.orange.darker());
         g.fillRect( HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-
+        g.setColor(Color.red);
+        g.drawRect(HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         for(BodySneake body:Window.bodySneakeArrayList){
+           g.setColor(Color.orange.darker());
             g.fillRect( body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+            g.setColor(Color.red);
+            g.drawRect(body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+
         }
 
         /*
