@@ -29,6 +29,7 @@ class Window extends JFrame{
     add(canvas);
     canvas.setBounds(0,0,WIDTH,HEIGHT);
     game = false;
+    new DrawThread().start();
     }
 }
 
