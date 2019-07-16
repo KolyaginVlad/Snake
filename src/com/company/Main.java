@@ -12,6 +12,10 @@ public class Main {
 }
 class Window extends JFrame{
     public Window(){
-
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setSize(600,600);
+    setResizable(false);
+    setLayout(null);
+    setVisible(true);
     }
 }
