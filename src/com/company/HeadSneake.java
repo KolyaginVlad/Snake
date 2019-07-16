@@ -11,14 +11,30 @@ public class HeadSneake {
     //Всё статическое т.к. голова одна
     static int x;
     static int y;
-   Move move;
+    static int step = 5;
+
 
     public HeadSneake(int x, int y, int direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
         //Присваиваем изображению файл с изображением
-        new Move().keyPressed();
 
+
+    }
+
+    public static void sneakeMove(){
+        if (direction==RRIGHT){
+            x+=step;
+        }
+        else if (direction==LEFT){
+            x-=step;
+        }
+        else if (direction==UP){
+            y-=step;
+        }
+        else if (direction==DOWN){
+            y+=step;
+        }
     }
 }

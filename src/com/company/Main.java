@@ -39,11 +39,12 @@ class Window extends JFrame {
         HeadSneake.x = 100;
         HeadSneake.y = 0;
         HeadSneake.direction = HeadSneake.RRIGHT;
-        game = true;
         canvas = new Canvas();
-        new DrawThread().start();
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
+        canvas.setFocusable(true);
+        canvas.addKeyListener(new Move());
+        new DrawThread().start();
     }
 }
 
@@ -67,8 +68,8 @@ class Canvas extends JPanel {
         g.setColor(Color.orange);
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
-        Hay.eatHay();
 
+        HeadSneake.sneakeMove();
 
         /*
         Рисуем изображение головы
@@ -83,10 +84,11 @@ class Canvas extends JPanel {
 class DrawThread extends Thread {
     @Override
     public void run() {
+        while (true)
         while (Window.game) {
             Window.canvas.repaint();
             try {
-                sleep(500);
+                sleep(125);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
