@@ -12,12 +12,10 @@ public class Hay {
 
    static int x;
    static int y;
-    public Hay(){
-        this.x=x;
-        this.y=y;
+
 
         //Присваиваем изображению файл с изображением
-    }
+
     public static void eatHay(){
         int newX = (int)(Math.random()*Window.WIDTH);
         int newY =(int)(Math.random()*Window.HEIGHT);

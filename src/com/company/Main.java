@@ -12,6 +12,8 @@ public class Main {
         new HeadSneake(100,0,4);
         new BodySneake(50,0);
         new Window();
+        new Hay();
+
     }
 
 
@@ -21,6 +23,7 @@ class Window extends JFrame{
     public static final int WIDTH = 600;
     public static final int HEIGHT = 600;
     public static ArrayList<BodySneake> bodySneakeArrayList;
+
     public static boolean game;
     static Canvas canvas;
     public Window(){
@@ -30,6 +33,7 @@ class Window extends JFrame{
     setLayout(null);
     setVisible(true);
     bodySneakeArrayList = new ArrayList<>();
+    Hay.eatHay();
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-HeadSneake.WIDTH,HeadSneake.y));
     bodySneakeArrayList.add(new BodySneake(HeadSneake.x-(2*HeadSneake.HEIGHT),HeadSneake.y));
     HeadSneake.x = 100;
@@ -60,6 +64,9 @@ class Canvas extends JPanel{
             g.drawRect(body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
         }
+        g.setColor(Color.orange);
+        g.fillOval(Hay.x,Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+
 
         /*
         Рисуем изображение головы
