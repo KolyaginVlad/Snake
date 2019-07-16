@@ -45,6 +45,8 @@ class Window extends JFrame {
         canvas.setFocusable(true);
         canvas.addKeyListener(new Move());
         new DrawThread().start();
+
+        
     }
 }
 
