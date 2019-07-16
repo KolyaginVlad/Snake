@@ -1,18 +1,25 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Hay {
     //Сена может быть много, поэтому не статик
     //Все файлы java  в одном пакете поэтому модификатор доступа не нужен
-   static ImageIcon image;
+   static Image image;
    static int x;
    static int y;
     public Hay(){
         this.x=x;
         this.y=y;
-        image =new ImageIcon("Hay.jpg");
+        try {
+            image = ImageIO.read(new File("Hay.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //Присваиваем изображению файл с изображением
     }
     public static void eatHay(){
