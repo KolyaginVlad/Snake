@@ -49,11 +49,11 @@ class Canvas extends JPanel{
     public void paintComponent(Graphics g){
         g.setColor(Color.green.darker().darker());
         g.fillRect(0,0,Window.WIDTH,Window.HEIGHT);
-
-        g.drawImage(HeadSneake.image, HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
+        g.setColor(Color.black);
+        g.fillRect( HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
         for(BodySneake body:Window.bodySneakeArrayList){
-            g.drawImage(body.image, body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT,null);
+            g.fillRect( body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         }
 
         /*

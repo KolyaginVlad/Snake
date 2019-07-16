@@ -9,17 +9,13 @@ import java.io.IOException;
 public class Hay {
     //Сена может быть много, поэтому не статик
     //Все файлы java  в одном пакете поэтому модификатор доступа не нужен
-   static Image image;
+
    static int x;
    static int y;
     public Hay(){
         this.x=x;
         this.y=y;
-        try {
-            image = ImageIO.read(new File("Hay.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         //Присваиваем изображению файл с изображением
     }
     public static void eatHay(){

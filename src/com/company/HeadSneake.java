@@ -16,8 +16,8 @@ public  class HeadSneake {
    //Всё статическое т.к. голова одна
    static int x;
    static int y;
-   static final int WIDTH = 50;//Длинна и ширина одного блока змеи, будет использоваться в Body
-   static final int HEIGHT = 50;
+   static final int WIDTH = 20;//Длинна и ширина одного блока змеи, будет использоваться в Body
+   static final int HEIGHT = 20;
    public HeadSneake(int x,int y,int direction){
        this.x = x;
        this.y = y;
