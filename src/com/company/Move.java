@@ -26,6 +26,9 @@ if(event.getKeyCode()==KeyEvent.VK_RIGHT&&HeadSneake.direction!=HeadSneake.LEFT)
 HeadSneake.direction = HeadSneake.RRIGHT;
     HeadSneake.x+=step;
 }
+if(event.getKeyCode()==KeyEvent.VK_SPACE){
+    
+}
 }
 
 
