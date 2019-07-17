@@ -37,4 +37,40 @@ public class HeadSneake {
             y+=step;
         }
     }
+
+    public static void isSnakeEat(){
+        if (Math.abs(x-Hay.x)<WIDTH&&Math.abs(y-Hay.y)<HEIGHT){
+            Hay.eatHay();
+            Window.bodySneakeArrayList.add(new BodySneake(Window.bodySneakeArrayList.get(Window.bodySneakeArrayList.size()-1).x,Window.bodySneakeArrayList.get(Window.bodySneakeArrayList.size()-1).y));
+        }
+    }
+
+    public static void isCrash(){
+        if (x<0||x>Window.WIDTH||y<0||y>Window.HEIGHT-40){
+            Window.game = false;
+            x= 100;
+            y=0;
+            for (int i = Window.bodySneakeArrayList.size()-1; i >=0 ; i--) {
+                Window.bodySneakeArrayList.remove(i);
+            }
+            Canvas.first=true;
+            direction=RRIGHT;
+        }
+        else{
+            for (BodySneake body:Window.bodySneakeArrayList
+                 ) {
+                if (Math.abs(x-body.x)<WIDTH&&Math.abs(y-body.y)<HEIGHT){
+                    Window.game = false;
+                    x=100;
+                    y=0;
+                    for (int i = Window.bodySneakeArrayList.size()-1; i >=0 ; i--) {
+                        Window.bodySneakeArrayList.remove(i);
+                    }
+                    Canvas.first=true;
+                    direction=RRIGHT;
+                }
+
+            }
+        }
+    }
 }

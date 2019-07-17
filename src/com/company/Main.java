@@ -38,9 +38,6 @@ class Window extends JFrame {
         setLayout(null);
         setVisible(true);
         bodySneakeArrayList = new ArrayList<>();
-        bodySneakeArrayList.add(new BodySneake(HeadSneake.x - HeadSneake.WIDTH, HeadSneake.y));
-        bodySneakeArrayList.add(new BodySneake(HeadSneake.x - (2 * HeadSneake.WIDTH), HeadSneake.y));
-        bodySneakeArrayList.add(new BodySneake(HeadSneake.x-(3*HeadSneake.WIDTH),HeadSneake.y));
         Hay.eatHay();
         HeadSneake.x = 100;
         HeadSneake.y = 0;
@@ -49,13 +46,6 @@ class Window extends JFrame {
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
         canvas.setFocusable(true);
-<<<<<<< HEAD
-
-        //canvas.addKeyListener(new Move());
-        new DrawThread().start();
-
-=======
->>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
         canvas.addKeyListener(new Move());
         new DrawThread().start();
         canvas.addMouseListener(new MouseAdapter() {
@@ -96,8 +86,15 @@ class Canvas extends JPanel {
             }
             Window.bodySneakeArrayList.get(0).y = y;
             Window.bodySneakeArrayList.get(0).x = x;
+            HeadSneake.isSnakeEat();
+            HeadSneake.isCrash();
         }
-        else first=false;
+        else {
+            first = false;
+            Window.bodySneakeArrayList.add(new BodySneake(HeadSneake.x - HeadSneake.WIDTH, HeadSneake.y));
+            Window.bodySneakeArrayList.add(new BodySneake(HeadSneake.x - (2 * HeadSneake.WIDTH), HeadSneake.y));
+            Window.bodySneakeArrayList.add(new BodySneake(HeadSneake.x-(3*HeadSneake.WIDTH),HeadSneake.y));
+        }
         g.setColor(Color.green.darker().darker());
         g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
         g.setColor(Color.BLUE);
@@ -119,18 +116,8 @@ class Canvas extends JPanel {
         }
         g.setColor(Color.red.darker());
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-<<<<<<< HEAD
 
 
-
-        HeadSneake.sneakeMove();
-
-        g.setColor(Color.orange);
-        g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-
-        Hay.eatHay();
-=======
->>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
@@ -147,22 +134,8 @@ class DrawThread extends Thread {
         while (true)
             while (Window.game) {
                 Window.canvas.repaint();
-<<<<<<< HEAD
-
-                try {
-                    sleep(125);
-
-                    try {
-                        sleep(200);
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-=======
                 try {
                     sleep(200);
->>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
