@@ -37,7 +37,8 @@ class Window extends JFrame {
         setVisible(true);
         bodySneakeArrayList = new ArrayList<>();
         bodySneakeArrayList.add(new BodySneake(HeadSneake.x - HeadSneake.WIDTH, HeadSneake.y));
-        bodySneakeArrayList.add(new BodySneake(HeadSneake.x - (2 * HeadSneake.HEIGHT), HeadSneake.y));
+        bodySneakeArrayList.add(new BodySneake(HeadSneake.x - (2 * HeadSneake.WIDTH), HeadSneake.y));
+        bodySneakeArrayList.add(new BodySneake(HeadSneake.x-(3*HeadSneake.WIDTH),HeadSneake.y));
         Hay.eatHay();
         HeadSneake.x = 100;
         HeadSneake.y = 0;
@@ -69,18 +70,17 @@ class Window extends JFrame {
 
 
 class Canvas extends JPanel {
+    static boolean first = true;
     @Override
     public void paintComponent(Graphics g) {
         g.setColor(Color.green.darker().darker());
         g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
         g.setColor(Color.BLUE);
-        g.drawRect(480,500,40,20);
-        g.drawRect(540,500,40,20);
-        g.drawOval(520,500,20,20);
-        g.drawRect(520,460,20,40);
-        g.drawRect(520,520,20,40);
-
-
+        g.drawRect(480, 500, 40, 20);
+        g.drawRect(540, 500, 40, 20);
+        g.drawOval(520, 500, 20, 20);
+        g.drawRect(520, 460, 20, 40);
+        g.drawRect(520, 520, 20, 40);
         g.setColor(Color.orange.darker());
         g.fillRect(HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         g.setColor(Color.red.darker());
@@ -96,8 +96,23 @@ class Canvas extends JPanel {
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         g.setColor(Color.orange);
         g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-        HeadSneake.sneakeMove();
-
+        if (!first) {
+            int x = HeadSneake.x;
+            int y = HeadSneake.y;
+            HeadSneake.sneakeMove();
+            int [][]mass = new int[Window.bodySneakeArrayList.size()][2];
+            for (int i = 0; i <Window.bodySneakeArrayList.size() ; i++) {
+                mass[i][0]=Window.bodySneakeArrayList.get(i).x;
+                mass[i][1]=Window.bodySneakeArrayList.get(i).y;
+            }
+            Window.bodySneakeArrayList.get(0).x=x;
+            Window.bodySneakeArrayList.get(0).y=y;
+            for (int i = 1; i <Window.bodySneakeArrayList.size() ; i++) {
+                Window.bodySneakeArrayList.get(i).x=mass[i-1][0];
+                Window.bodySneakeArrayList.get(i).y=mass[i-1][1];
+            }
+        }
+        else first=false;
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
