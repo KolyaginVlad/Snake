@@ -68,6 +68,7 @@ public class HeadSneake {
                     }
                     Canvas.first=true;
                     direction=RRIGHT;
+                    break;
                 }
 
             }
