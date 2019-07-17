@@ -27,6 +27,7 @@ class Window extends JFrame {
 
     public static boolean game;
     static Canvas canvas;
+   Move move;
 
     public Window() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -47,12 +48,7 @@ class Window extends JFrame {
         canvas.setFocusable(true);
         //canvas.addKeyListener(new Move());
         new DrawThread().start();
-        canvas.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Window.game=true;
-            }
-        });
+        canvas.addKeyListener(new Move());
 
     }
 }
