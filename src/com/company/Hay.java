@@ -1,8 +1,7 @@
 package com.company;
 
 public class Hay {
-    //Сена может быть много, поэтому не статик
-    //Все файлы java  в одном пакете поэтому модификатор доступа не нужен
+    
 
     static int x;
     static int y;
@@ -11,7 +10,7 @@ public class Hay {
     //Присваиваем изображению файл с изображением
 
     public static void eatHay() {
-        int newX = (int) (Math.random() * Window.WIDTH+50);
+        int newX = (int) (Math.random() * Window.WIDTH-50);
         int newY = (int) (Math.random() * Window.HEIGHT-50);
         boolean flag = true;
         for (BodySneake body : Window.bodySneakeArrayList
