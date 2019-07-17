@@ -100,17 +100,12 @@ class Canvas extends JPanel {
             int x = HeadSneake.x;
             int y = HeadSneake.y;
             HeadSneake.sneakeMove();
-            int [][]mass = new int[Window.bodySneakeArrayList.size()][2];
-            for (int i = 0; i <Window.bodySneakeArrayList.size() ; i++) {
-                mass[i][0]=Window.bodySneakeArrayList.get(i).x;
-                mass[i][1]=Window.bodySneakeArrayList.get(i).y;
+            for (int i = Window.bodySneakeArrayList.size() - 1; i > 0; i--) {
+                Window.bodySneakeArrayList.get(i).x = Window.bodySneakeArrayList.get(i - 1).x;
+                Window.bodySneakeArrayList.get(i).y = Window.bodySneakeArrayList.get(i - 1).y;
             }
-            Window.bodySneakeArrayList.get(0).x=x;
-            Window.bodySneakeArrayList.get(0).y=y;
-            for (int i = 1; i <Window.bodySneakeArrayList.size() ; i++) {
-                Window.bodySneakeArrayList.get(i).x=mass[i-1][0];
-                Window.bodySneakeArrayList.get(i).y=mass[i-1][1];
-            }
+            Window.bodySneakeArrayList.get(0).y = y;
+            Window.bodySneakeArrayList.get(0).x = x;
         }
         else first=false;
         /*
