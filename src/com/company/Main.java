@@ -48,7 +48,21 @@ class Window extends JFrame {
         canvas.setFocusable(true);
         //canvas.addKeyListener(new Move());
         new DrawThread().start();
-        canvas.addKeyListener(new Move());
+        canvas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getX()>480&&e.getX()<520&&e.getY()>500&&e.getY()<520&&HeadSneake.direction!=HeadSneake.RRIGHT)
+                    HeadSneake.direction=HeadSneake.LEFT;
+                else if (e.getX()>540&&e.getX()<580&&e.getY()>500&&e.getY()<520&&HeadSneake.direction!=HeadSneake.LEFT)
+                    HeadSneake.direction=HeadSneake.RRIGHT;
+                else if (e.getX()>520&&e.getX()<540&&e.getY()>460&&e.getY()<500&&HeadSneake.direction!=HeadSneake.DOWN)
+                    HeadSneake.direction=HeadSneake.UP;
+                else if (e.getX()>520&&e.getX()<540&&e.getY()>520&&e.getY()<560&&HeadSneake.direction!=HeadSneake.UP)
+                    HeadSneake.direction=HeadSneake.DOWN;
+                else if(e.getX()>520&&e.getX()<540&&e.getY()>500&&e.getY()<520)
+                    Window.game=true;
+            }
+        });
 
     }
 }
@@ -59,6 +73,14 @@ class Canvas extends JPanel {
     public void paintComponent(Graphics g) {
         g.setColor(Color.green.darker().darker());
         g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
+        g.setColor(Color.BLUE);
+        g.drawRect(480,500,40,20);
+        g.drawRect(540,500,40,20);
+        g.drawOval(520,500,20,20);
+        g.drawRect(520,460,20,40);
+        g.drawRect(520,520,20,40);
+
+
         g.setColor(Color.orange.darker());
         g.fillRect(HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         g.setColor(Color.red.darker());
@@ -70,10 +92,10 @@ class Canvas extends JPanel {
             g.drawRect(body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
         }
-        g.setColor(Color.orange);
+        g.setColor(Color.red.darker());
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-
-
+        g.setColor(Color.orange);
+        g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         HeadSneake.sneakeMove();
 
         /*
