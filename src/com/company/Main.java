@@ -49,10 +49,13 @@ class Window extends JFrame {
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
         canvas.setFocusable(true);
+<<<<<<< HEAD
 
         //canvas.addKeyListener(new Move());
         new DrawThread().start();
 
+=======
+>>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
         canvas.addKeyListener(new Move());
         new DrawThread().start();
         canvas.addMouseListener(new MouseAdapter() {
@@ -116,6 +119,7 @@ class Canvas extends JPanel {
         }
         g.setColor(Color.red.darker());
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+<<<<<<< HEAD
 
 
 
@@ -125,6 +129,8 @@ class Canvas extends JPanel {
         g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
         Hay.eatHay();
+=======
+>>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
@@ -141,6 +147,7 @@ class DrawThread extends Thread {
         while (true)
             while (Window.game) {
                 Window.canvas.repaint();
+<<<<<<< HEAD
 
                 try {
                     sleep(125);
@@ -152,6 +159,10 @@ class DrawThread extends Thread {
                         e.printStackTrace();
                     }
 
+=======
+                try {
+                    sleep(200);
+>>>>>>> 1b57ddc5e741eb29e1a202d325ce2703549ed968
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
