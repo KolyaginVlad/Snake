@@ -90,14 +90,14 @@ class DrawThread extends Thread {
     @Override
     public void run() {
         while (true)
-        while (Window.game) {
-            Window.canvas.repaint();
-            try {
-                sleep(125);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            while (Window.game) {
+                Window.canvas.repaint();
+                try {
+                    sleep(125);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-        }
+            }
     }
 }
