@@ -74,7 +74,7 @@ class Window extends JFrame {
         });
 >>>>>>> 199227250bdd8ce6d537ca6d2759189899fea1db
 
-           
+
     }
 }
 
