@@ -1,13 +1,14 @@
 package com.company;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Move extends KeyAdapter {
-
-
     public void keyPressed(KeyEvent event) {
+
         if (event.getKeyCode() == KeyEvent.VK_DOWN && HeadSneake.direction != HeadSneake.UP) {
             HeadSneake.direction = HeadSneake.DOWN;
 
@@ -29,9 +30,5 @@ public class Move extends KeyAdapter {
             Window.game = true;
         }
     }
-
-
 }
-
-
 

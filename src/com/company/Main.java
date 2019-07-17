@@ -27,7 +27,7 @@ class Window extends JFrame {
 
     public static boolean game;
     static Canvas canvas;
-   Move move;
+  
 
     public Window() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
