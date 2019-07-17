@@ -52,15 +52,17 @@ class Window extends JFrame {
         canvas.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getX()>480&&e.getX()<520&&e.getY()>500&&e.getY()<520&&HeadSneake.direction!=HeadSneake.RRIGHT)
+                int x = e.getX();
+                int y = e.getY();
+                if (x>480&&x<520&&y>500&&y<530&&HeadSneake.direction!=HeadSneake.RRIGHT)
                     HeadSneake.direction=HeadSneake.LEFT;
-                else if (e.getX()>540&&e.getX()<580&&e.getY()>500&&e.getY()<520&&HeadSneake.direction!=HeadSneake.LEFT)
+                else if (x>550&&x<590&&y>500&&y<530&&HeadSneake.direction!=HeadSneake.LEFT)
                     HeadSneake.direction=HeadSneake.RRIGHT;
-                else if (e.getX()>520&&e.getX()<540&&e.getY()>460&&e.getY()<500&&HeadSneake.direction!=HeadSneake.DOWN)
+                else if (x>520&&x<550&&y>460&&y<500&&HeadSneake.direction!=HeadSneake.DOWN)
                     HeadSneake.direction=HeadSneake.UP;
-                else if (e.getX()>520&&e.getX()<540&&e.getY()>520&&e.getY()<560&&HeadSneake.direction!=HeadSneake.UP)
+                else if (x>520&&x<550&&y>530&&y<570&&HeadSneake.direction!=HeadSneake.UP)
                     HeadSneake.direction=HeadSneake.DOWN;
-                else if(e.getX()>520&&e.getX()<540&&e.getY()>500&&e.getY()<520)
+                else if(x>520&&x<550&&y>500&&y<530)
                     Window.game=true;
             }
         });
@@ -73,14 +75,26 @@ class Canvas extends JPanel {
     static boolean first = true;
     @Override
     public void paintComponent(Graphics g) {
+        if (!first) {
+            int x = HeadSneake.x;
+            int y = HeadSneake.y;
+            HeadSneake.sneakeMove();
+            for (int i = Window.bodySneakeArrayList.size() - 1; i > 0; i--) {
+                Window.bodySneakeArrayList.get(i).x = Window.bodySneakeArrayList.get(i - 1).x;
+                Window.bodySneakeArrayList.get(i).y = Window.bodySneakeArrayList.get(i - 1).y;
+            }
+            Window.bodySneakeArrayList.get(0).y = y;
+            Window.bodySneakeArrayList.get(0).x = x;
+        }
+        else first=false;
         g.setColor(Color.green.darker().darker());
         g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
         g.setColor(Color.BLUE);
-        g.drawRect(480, 500, 40, 20);
-        g.drawRect(540, 500, 40, 20);
-        g.drawOval(520, 500, 20, 20);
-        g.drawRect(520, 460, 20, 40);
-        g.drawRect(520, 520, 20, 40);
+        g.drawRect(480, 500, 40, 30);
+        g.drawRect(550, 500, 40, 30);
+        g.drawOval(520, 500, 30, 30);
+        g.drawRect(520, 460, 30, 40);
+        g.drawRect(520, 530, 30, 40);
         g.setColor(Color.orange.darker());
         g.fillRect(HeadSneake.x, HeadSneake.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         g.setColor(Color.red.darker());
@@ -96,18 +110,7 @@ class Canvas extends JPanel {
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
         g.setColor(Color.orange);
         g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-        if (!first) {
-            int x = HeadSneake.x;
-            int y = HeadSneake.y;
-            HeadSneake.sneakeMove();
-            for (int i = Window.bodySneakeArrayList.size() - 1; i > 0; i--) {
-                Window.bodySneakeArrayList.get(i).x = Window.bodySneakeArrayList.get(i - 1).x;
-                Window.bodySneakeArrayList.get(i).y = Window.bodySneakeArrayList.get(i - 1).y;
-            }
-            Window.bodySneakeArrayList.get(0).y = y;
-            Window.bodySneakeArrayList.get(0).x = x;
-        }
-        else first=false;
+
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
@@ -125,7 +128,7 @@ class DrawThread extends Thread {
             while (Window.game) {
                 Window.canvas.repaint();
                 try {
-                    sleep(125);
+                    sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

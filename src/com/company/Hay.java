@@ -7,7 +7,7 @@ public class Hay {
     static int y;
 
 
-  
+
 
     public static void eatHay() {
         int newX = (int) (Math.random() * (Window.WIDTH-100)+50);
