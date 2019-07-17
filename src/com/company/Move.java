@@ -28,9 +28,9 @@ public class Move extends KeyAdapter {
         }
         if (event.getKeyCode() == KeyEvent.VK_SPACE) {
             Window.game = true;
-            System.out.println(1);
+
         }
-        System.out.println(1);
+
     }
 }
 

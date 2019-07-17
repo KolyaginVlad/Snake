@@ -11,7 +11,7 @@ public class HeadSneake {
     //Всё статическое т.к. голова одна
     static int x;
     static int y;
-    static int step = 5;
+    static int step = 20;
 
 
     public HeadSneake(int x, int y, int direction) {
