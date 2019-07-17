@@ -47,7 +47,7 @@ class Window extends JFrame {
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
         canvas.setFocusable(true);
-        //canvas.addKeyListener(new Move());
+        canvas.addKeyListener(new Move());
         new DrawThread().start();
         canvas.addMouseListener(new MouseAdapter() {
             @Override
