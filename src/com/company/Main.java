@@ -49,10 +49,10 @@ class Window extends JFrame {
         add(canvas);
         canvas.setBounds(0, 0, WIDTH, HEIGHT);
         canvas.setFocusable(true);
-<<<<<<< HEAD
+
         //canvas.addKeyListener(new Move());
         new DrawThread().start();
-=======
+
         canvas.addKeyListener(new Move());
         new DrawThread().start();
         canvas.addMouseListener(new MouseAdapter() {
@@ -72,7 +72,7 @@ class Window extends JFrame {
                     Window.game=true;
             }
         });
->>>>>>> 199227250bdd8ce6d537ca6d2759189899fea1db
+
 
 
     }
@@ -116,15 +116,15 @@ class Canvas extends JPanel {
         }
         g.setColor(Color.red.darker());
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-<<<<<<< HEAD
+
 
 
         HeadSneake.sneakeMove();
-=======
+
         g.setColor(Color.orange);
         g.drawOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
 
->>>>>>> 199227250bdd8ce6d537ca6d2759189899fea1db
+        Hay.eatHay();
         /*
         Рисуем изображение головы
         Рисуем нужное количество тел
@@ -141,17 +141,20 @@ class DrawThread extends Thread {
         while (true)
             while (Window.game) {
                 Window.canvas.repaint();
-<<<<<<< HEAD
-               try {
-                    sleep(125);
-=======
-                try {
-                    sleep(200);
->>>>>>> 199227250bdd8ce6d537ca6d2759189899fea1db
-                } catch (InterruptedException e) {
-                   e.printStackTrace();
-                }
 
+                try {
+                    sleep(125);
+
+                    try {
+                        sleep(200);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
     }
 }
