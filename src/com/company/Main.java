@@ -70,7 +70,7 @@ class Window extends JFrame {
         });
 
 
-           
+
     }
 }
 
