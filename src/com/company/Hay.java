@@ -11,8 +11,8 @@ public class Hay {
     //Присваиваем изображению файл с изображением
 
     public static void eatHay() {
-        int newX = (int) (Math.random() * Window.WIDTH);
-        int newY = (int) (Math.random() * Window.HEIGHT);
+        int newX = (int) (Math.random() * Window.WIDTH-50);
+        int newY = (int) (Math.random() * Window.HEIGHT-50);
         boolean flag = true;
         for (BodySneake body : Window.bodySneakeArrayList
         ) {
