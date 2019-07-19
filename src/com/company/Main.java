@@ -70,6 +70,7 @@ class Window extends JFrame {
   
 
     public Window() {
+        super("Game");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
         setResizable(false);
@@ -154,15 +155,6 @@ class Canvas extends JPanel {
         }
         g.setColor(Color.red.darker());
         g.fillOval(Hay.x, Hay.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
-
-
-        /*
-        Рисуем изображение головы
-        Рисуем нужное количество тел
-        Рисуем хвост
-        Рисуем сено
-        (Нужны картинки)
-         */
     }
 }
 
