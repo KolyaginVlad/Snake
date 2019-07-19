@@ -33,7 +33,8 @@ class GameStart extends JFrame{
         canvas = new CanvasForGameStart();
         add(canvas);
         canvas.setBounds(0,0,WIDTH,HEIGHT);
-        JButton start = new JButton("Начать игру");
+        JButton start = new JButton();
+        start.setText("Начать игру");
         JButton top = new JButton("Рейтинг");
         canvas.add(start);
         canvas.add(top);
@@ -177,8 +178,12 @@ class CanvasForGameStart extends JPanel{
                 HeadSneakeForStartGame.bodysForStartGame.get(i).x = HeadSneakeForStartGame.bodysForStartGame.get(i - 1).x;
                 HeadSneakeForStartGame.bodysForStartGame.get(i).y = HeadSneakeForStartGame.bodysForStartGame.get(i - 1).y;
             }
-            HeadSneakeForStartGame.bodysForStartGame.get(0).y = y;
-            HeadSneakeForStartGame.bodysForStartGame.get(0).x = x;
+            try {
+                HeadSneakeForStartGame.bodysForStartGame.get(0).y = y;
+                HeadSneakeForStartGame.bodysForStartGame.get(0).x = x;
+            }catch (Exception e){
+
+            }
             HeadSneakeForStartGame.isSnakeEat();
         }
         else {
@@ -201,6 +206,7 @@ class CanvasForGameStart extends JPanel{
         g.fillOval(HayForStartGame.x, HayForStartGame.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
     }
 }
+
 
 class DrawThread extends Thread {
     @Override
