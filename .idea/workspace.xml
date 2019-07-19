@@ -17,31 +17,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="183" column="31" selection-start-line="183" selection-start-column="31" selection-end-line="183" selection-end-column="31" />
+            <state relative-caret-position="238">
+              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1085#1330#0" expanded="true" />
                 <element signature="e#1329#1330#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneakeForStartGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="31" column="140" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="140" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/HayForStartGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="163" selection-start-line="22" selection-start-column="163" selection-end-line="22" selection-end-column="163" />
             </state>
           </provider>
         </entry>
@@ -67,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="43" column="200" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="200" />
+            <state relative-caret-position="170">
+              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -100,9 +82,9 @@
         <option value="$PROJECT_DIR$/src/com/company/BodySneake.java" />
         <option value="$PROJECT_DIR$/src/com/company/Move.java" />
         <option value="$PROJECT_DIR$/src/com/company/Hay.java" />
-        <option value="$PROJECT_DIR$/src/com/company/HeadSneake.java" />
         <option value="$PROJECT_DIR$/src/com/company/HayForStartGame.java" />
         <option value="$PROJECT_DIR$/src/com/company/HeadSneakeForStartGame.java" />
+        <option value="$PROJECT_DIR$/src/com/company/HeadSneake.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
@@ -247,13 +229,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Hay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/HayForStartGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -261,24 +236,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneakeForStartGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="43" column="200" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="200" />
+        <state relative-caret-position="447">
+          <caret line="31" column="140" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="140" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneakeForStartGame.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Hay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="31" column="140" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="140" />
+        <state relative-caret-position="294">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/HeadSneake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="183" column="31" selection-start-line="183" selection-start-column="31" selection-end-line="183" selection-end-column="31" />
+        <state relative-caret-position="238">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1085#1330#0" expanded="true" />

@@ -2,6 +2,8 @@ package com.company;
 
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -35,7 +37,11 @@ class GameStart extends JFrame{
         canvas.setBounds(0,0,WIDTH,HEIGHT);
         JButton start = new JButton();
         start.setText("Начать игру");
+        start.setBackground(Color.blue.darker());
+        start.setFocusable(false);
         JButton top = new JButton("Рейтинг");
+        top.setFocusable(false);
+        top.setBackground(Color.CYAN.darker());
         canvas.add(start);
         canvas.add(top);
         start.setBounds(200,200,150,50);
