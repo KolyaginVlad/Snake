@@ -3,10 +3,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -14,13 +11,53 @@ public class Main {
     public static void main(String[] args) {
         new HeadSneake(100, 0, 4);
         new BodySneake(50, 0);
-        new Window();
+        new GameStart();
         new Hay();
 
     }
 
 
 }
+class GameStart extends JFrame{
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 600;
+    static CanvasForGameStart canvas;
+    static boolean play = true;
+    public GameStart(){
+        super("Snake");
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(WIDTH, HEIGHT);
+        setResizable(false);
+        setLayout(null);
+        setVisible(true);
+        canvas = new CanvasForGameStart();
+        add(canvas);
+        canvas.setBounds(0,0,WIDTH,HEIGHT);
+        JButton start = new JButton("Начать игру");
+        JButton top = new JButton("Рейтинг");
+        canvas.add(start);
+        canvas.add(top);
+        start.setBounds(200,200,150,50);
+        top.setBounds(200,300,150,50);
+        start.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Window();
+                setVisible(false);
+                play=false;
+                dispose();
+            }
+        });
+        HayForStartGame.eatHay();
+        HeadSneakeForStartGame.x=0;
+        HeadSneakeForStartGame.y=0;
+        HeadSneakeForStartGame.bodysForStartGame.add(new BodySneake(HeadSneakeForStartGame.x-HeadSneakeForStartGame.WIDTH,HeadSneakeForStartGame.y));
+        HeadSneakeForStartGame.bodysForStartGame.add(new BodySneake(HeadSneakeForStartGame.x-2*HeadSneakeForStartGame.WIDTH,HeadSneakeForStartGame.y));
+        new DrawForStartGameThread().start();
+    }
+}
+
+
 
 class Window extends JFrame {
     public static final int WIDTH = 600;
@@ -128,6 +165,43 @@ class Canvas extends JPanel {
     }
 }
 
+class CanvasForGameStart extends JPanel{
+    static boolean first = true;
+    @Override
+    public void paintComponent(Graphics g) {
+        if (!first) {
+            int x = HeadSneakeForStartGame.x;
+            int y = HeadSneakeForStartGame.y;
+            HeadSneakeForStartGame.sneakeMove();
+            for (int i = HeadSneakeForStartGame.bodysForStartGame.size() - 1; i > 0; i--) {
+                HeadSneakeForStartGame.bodysForStartGame.get(i).x = HeadSneakeForStartGame.bodysForStartGame.get(i - 1).x;
+                HeadSneakeForStartGame.bodysForStartGame.get(i).y = HeadSneakeForStartGame.bodysForStartGame.get(i - 1).y;
+            }
+            HeadSneakeForStartGame.bodysForStartGame.get(0).y = y;
+            HeadSneakeForStartGame.bodysForStartGame.get(0).x = x;
+            HeadSneakeForStartGame.isSnakeEat();
+        }
+        else {
+            first = false;
+        }
+        g.setColor(Color.green.darker().darker());
+        g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
+        g.setColor(Color.orange.darker());
+        g.fillRect(HeadSneakeForStartGame.x, HeadSneakeForStartGame.y, HeadSneakeForStartGame.WIDTH, HeadSneakeForStartGame.HEIGHT);
+        g.setColor(Color.red.darker());
+        g.drawRect(HeadSneakeForStartGame.x, HeadSneakeForStartGame.y, HeadSneakeForStartGame.WIDTH, HeadSneakeForStartGame.HEIGHT);
+        for (BodySneake body : HeadSneakeForStartGame.bodysForStartGame) {
+            g.setColor(Color.orange.darker());
+            g.fillRect(body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+            g.setColor(Color.red.darker());
+            g.drawRect(body.x, body.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+
+        }
+        g.setColor(Color.red.darker());
+        g.fillOval(HayForStartGame.x, HayForStartGame.y, HeadSneake.WIDTH, HeadSneake.HEIGHT);
+    }
+}
+
 class DrawThread extends Thread {
     @Override
     public void run() {
@@ -140,5 +214,19 @@ class DrawThread extends Thread {
                     e.printStackTrace();
                 }
             }
+    }
+}
+
+class DrawForStartGameThread extends Thread{
+    @Override
+    public void run() {
+        while (GameStart.play) {
+            GameStart.canvas.repaint();
+            try {
+                sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
